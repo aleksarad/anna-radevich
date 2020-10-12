@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header'
+import ImageContainer from './components/ImageContainer'
+
+//images
+
+import abstract1 from './images/abstract1.jpg'
+import abstract2 from './images/abstract2.jpeg'
+import abstract3 from './images/abstract3.jpg'
+import abstract4 from './images/abstract4.jpg'
+
+const images = [abstract1, abstract2, abstract3, abstract4]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header/>
+      <main>
+        <ImageContainer images={images}/>
+      </main>
+    </>
   );
 }
 
