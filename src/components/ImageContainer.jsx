@@ -1,11 +1,24 @@
-import React, {useState} from 'react'
+import React, { useState, useKeyPress } from 'react'
 import ImageCard from './ImageCard'
 
+// if (e.keyCode == '38') {
+//     // up arrow
+// }
+// else if (e.keyCode == '40') {
+//     // down arrow
+// }
+// else if (e.keyCode == '37') {
+//    // left arrow
+// }
+// else if (e.keyCode == '39') {
+//    // right arrow
+// }
 
 
 export default function ImageContainer({images}) {
     const [imageToShow, setImageToShow] = useState('')
     const [lightboxDisplay, setLightBoxDisplay] = useState(false)
+
 
     const showImage = (image) => {
         setImageToShow(image)
@@ -13,7 +26,8 @@ export default function ImageContainer({images}) {
         console.log(images)
     }
 
-    const showNext = () => {
+    const showNext = (e) => {
+        e.stopPropagation()
         let currentIndex = images.indexOf(imageToShow)
         if(currentIndex >= images.length - 1) {
             setLightBoxDisplay(false)
@@ -24,7 +38,8 @@ export default function ImageContainer({images}) {
         }
     }
 
-    const showPrev = () => {
+    const showPrev = (e) => {
+        e.stopPropagation()
         let currentIndex = images.indexOf(imageToShow)
         if(currentIndex <= 0) {
             setLightBoxDisplay(false)
@@ -39,6 +54,15 @@ export default function ImageContainer({images}) {
         setLightBoxDisplay(false)
     }
 
+    const handleKeyDown = (e) => {
+        if(e.keyCode === '37') {
+            alert('u pressed')
+        }
+        else if(e.keyCode === '39') {
+            alert('u pressed')
+        }
+    }
+
     const imageCards = images.map(image => <ImageCard showImage={showImage} image={image}/>)
 
     return (
@@ -46,10 +70,12 @@ export default function ImageContainer({images}) {
             <div id="image-container">{imageCards}</div>
             {
                 lightboxDisplay ?
-                <div id="lightbox">
-                    <button onClick={showPrev}>previous</button>
+                <div id="lightbox" onClick={hideLightBox} onKeyDown={handleKeyDown} >
+                    <button onClick={showPrev}>⭠</button>
+                    <section>
                         <img id="lightbox-img" src={imageToShow}></img>
-                    <button onClick={showNext}>next</button>
+                    </section>
+                    <button onClick={showNext}>⭢</button>
                 </div> : ''
             }
         </>
