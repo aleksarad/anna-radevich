@@ -1,6 +1,8 @@
 import React from 'react';
-import Header from './components/Header'
-import ImageContainer from './components/ImageContainer'
+import { BrowserRouter, Route } from 'react-router-dom';
+import Header from './components/Header';
+import ImageContainer from './components/ImageContainer';
+import About from './components/About';
 
 //images
 
@@ -15,12 +17,13 @@ const images = [abstract1, abstract2, abstract3, abstract4, abstract5, abstract6
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header/>
       <main>
-        <ImageContainer images={images}/>
+        <Route exact path="/" render={() => <ImageContainer images={images}/>}/>
+        <Route path="/about" render={()=> <About/>}/>
       </main>
-    </>
+    </BrowserRouter>
   );
 }
 

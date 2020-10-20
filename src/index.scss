@@ -1,4 +1,13 @@
+//MAIN COLOR VARS
+
+
+//FONTS
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+
+
+// * {
+//   border: 1px solid;
+// }
 
 body {
   margin: 0;
@@ -12,12 +21,23 @@ body {
 nav {
   display: grid;
   margin: 40px 0;
+
+  h1 {
+    font-size: 3.3rem;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  section {
+    text-align: center;
+    justify-self: right;
+  }
+
 }
 
-nav h1 {
-  font-size: 50px;
-  font-weight: 300;
-  margin: 0;
+.nav-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 nav > * {
@@ -26,10 +46,6 @@ nav > * {
   justify-self:center;
 }
 
-nav section {
-  text-align: center;
-  justify-self: right;
-}
 
 #about-container {
   width: 60px;
@@ -41,18 +57,18 @@ nav section {
   justify-content: center;
   background-color: rgb(255, 192, 234);
   border: 1px solid rgb(255, 192, 234);
-}
 
-#about-container div {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: rgb(44, 44, 44);
-  border: 1px solid rgb(44, 44, 44);
-  color: white;
+  div {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(44, 44, 44);
+    border: 1px solid rgb(44, 44, 44);
+    color: white;
+  }
 }
 
 #about-container div:hover {
@@ -78,18 +94,13 @@ nav section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
 
-#lightbox button {
-  height: 30px;
-  background-color: rgb(116, 116, 116);
-  color: white;
+  button {
+    height: 30px;
+    background-color: rgb(116, 116, 116);
+    color: white;
+  }
 }
-
-/* #lightbox section {
-  border: 1px solid;
-  padding: 30px;
-} */
 
 #lightbox-img {
   height: 80vh;
@@ -101,6 +112,23 @@ nav section {
   height: 26vw;
   width: 26vw;
   object-fit: cover;
+}
+
+/* ABOUT */
+
+#about-content {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
 }
 
 

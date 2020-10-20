@@ -23,7 +23,6 @@ export default function ImageContainer({images}) {
     const showImage = (image) => {
         setImageToShow(image)
         setLightBoxDisplay(true)
-        console.log(images)
     }
 
     const showNext = (e) => {
@@ -54,14 +53,14 @@ export default function ImageContainer({images}) {
         setLightBoxDisplay(false)
     }
 
-    const handleKeyDown = (e) => {
-        if(e.keyCode === '37') {
-            alert('u pressed')
-        }
-        else if(e.keyCode === '39') {
-            alert('u pressed')
-        }
-    }
+    // const handleKeyDown = (e) => {
+    //     if(e.keyCode === '37') {
+    //         alert('u pressed')
+    //     }
+    //     else if(e.keyCode === '39') {
+    //         alert('u pressed')
+    //     }
+    // }
 
     const imageCards = images.map(image => <ImageCard showImage={showImage} image={image}/>)
 
@@ -70,7 +69,7 @@ export default function ImageContainer({images}) {
             <div id="image-container">{imageCards}</div>
             {
                 lightboxDisplay ?
-                <div id="lightbox" onClick={hideLightBox} onKeyDown={handleKeyDown} >
+                <div id="lightbox" onClick={hideLightBox} >
                     <button onClick={showPrev}>⭠</button>
                     <section>
                         <img id="lightbox-img" src={imageToShow}></img>
